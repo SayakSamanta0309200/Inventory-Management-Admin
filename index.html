@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management Dashboard</title>
+    <style>
+        body {
+          font-family: "Lato", sans-serif;
+        }
+        
+        .sidenav {
+          height: 100%;
+          width: 160px;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: #04AA6D;
+          overflow-x: hidden;
+          padding-top: 20px;
+        }
+        
+        .sidenav div {
+            padding: 10px;
+        }
+
+        /*.sidenav div:hover{
+            color: #ffff;
+        }*/
+
+        .sidenav a {
+          padding: 6px 8px 6px 16px;
+          text-decoration: none;
+          font-size: 15px;
+          color: #000000;
+          display: block;
+        }
+        
+        .sidenav a:hover {
+          color: #ffff;
+        }
+        
+        .container{
+            display: grid;
+            align-items: center; 
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 0px;
+            
+        }
+
+        .image{
+            padding-top: 0px; 
+            padding-right: 0px; 
+            padding-bottom: 0px;
+            padding-left: 0px;
+        }
+
+        .home{
+            color: #ffff;
+            margin-top: 0px; 
+            margin-bottom: 0px;
+        }
+
+        .main {
+          margin-left: 160px; /* Same as the width of the sidenav */
+          font-size: 28px; /* Increased text to enable scrolling */
+          padding: 0px 10px;
+        }        
+
+        .topnav {
+            background-color: #ffff;
+            overflow: hidden;
+        }
+
+        /* Style the links inside the navigation bar */
+        .topnav a {
+            float: right;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 12px 14px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav img{
+          float: right;
+          padding: 0px 10px 10px 10px;
+        }
+        /* Change the color of links on hover*/ 
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /*Add a color to the active/current link*/
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .topnav input[type=text] {
+          float: left;
+          padding: 6px;
+          border: none;
+          border-radius: 25px;
+          margin-top: 8px;
+          margin-right: 16px;
+          margin-left: 8px;
+          font-size: 17px;
+          outline: solid;
+          outline-color: #04AA6D;
+        }
+
+        .salesandorders{
+          margin-left: 160px;
+          padding: 0px 10px;
+          height: 180px;
+          border: dotted;
+        }
+
+        .sales{
+          padding: 20px 0px 20px 50px;
+          float: left;
+        }
+
+        .orders{
+          padding: 20px 0px 20px 50px;
+          float: right;
+        }
+
+        .itemsandcustomers{
+          margin-left: 160px;
+          padding: 0px 10px;
+          height: 180px;
+          border: dotted;
+        }
+
+        .items{
+          padding: 20px 0px 20px 50px;
+          float: left;
+        }
+
+        .customers{
+          padding: 20px 0px 20px 50px;
+          float: right;
+        }
+
+        .graph{
+          margin-left: 160px;
+          padding: 0px 10px;
+          height: 175px;
+          border: dotted;
+        }
+
+        @media screen and (max-height: 450px) {
+          .sidenav {padding-top: 15px;}
+          .sidenav a {font-size: 18px;}
+        }
+        </style>
+</head>
+<body>
+    <div class="sidenav">
+        <div class="container" style="padding-top: 0px; padding-bottom: 0px; padding-left: 0px;">
+            <div class="image">
+                <img src="inventory.png" alt="Inventory" height="30" width="30">
+            </div>
+            <div class="home">
+                <p>Inventory Manager</p>
+            </div>
+        </div>
+        <a href="http://localhost/onlinevendor_admin/function.php">Inventory</a>
+        <a href="#customer">Customer</a>
+        <a href="#items">Items</a>
+      </div>
+
+      <div class="main">
+        <div class="topnav">
+          <input type="text" placeholder="Search..">
+          <img src="admin.png" alt="admin" height="44" width="44">
+          <a class="active" href="#home">Sayak</a>
+        </div>
+      </div>
+      <div class="salesandorders">
+        <div class="sales">
+          <h2>Sales</h2>
+          <table>
+            <tr>
+              <td>Total Sales </td>
+              <td>Revenue </td>
+            </tr>
+          </table>
+        </div>
+        <div class="orders">
+          <h2>Orders</h2>
+          <table>
+            <tr>
+              <td>Awaiting shipment</td>
+              <td>Cancelled</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>Declined</td>
+              <td>Refunded</td>
+              <td>Shipped</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="itemsandcustomers">
+        <div class="items">
+            <h2>Items</h2>
+            <table>
+              <tr>
+                <td>earphones</td>
+                <td>8</td>
+              </tr>
+            </table>
+        </div>
+        <div class="customers">
+            <h2>Customers</h2>
+            <table>
+              <tr>
+                <td>Total customers</td>
+                <td>100</td>
+              </tr>
+            </table>
+        </div>
+      </div>
+      
+      <div class="graph">
+
+      </div>
+</body>
+</html>
